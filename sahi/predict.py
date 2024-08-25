@@ -16,6 +16,7 @@ from functools import cmp_to_key
 
 import numpy as np
 from tqdm import tqdm
+from PIL import Image
 
 from sahi.auto_model import AutoDetectionModel
 from sahi.models.base import DetectionModel
@@ -87,7 +88,7 @@ def get_prediction(
     durations_in_seconds = dict()
 
     # read image as pil
-    image_as_pil = read_image_as_pil(image)
+    image_as_pil = read_image_as_pil(image).resize((640, 640), Image.ANTIALIAS)
     # get prediction
     time_start = time.time()
     detection_model.perform_inference(np.ascontiguousarray(image_as_pil))
