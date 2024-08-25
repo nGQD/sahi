@@ -88,7 +88,7 @@ def get_prediction(
     durations_in_seconds = dict()
 
     # read image as pil
-    image_as_pil = read_image_as_pil(image).resize((640, 640), Image.LANCZOS)
+    image_as_pil = read_image_as_pil(image)
     # get prediction
     time_start = time.time()
     detection_model.perform_inference(np.ascontiguousarray(image_as_pil))
