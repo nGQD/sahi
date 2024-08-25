@@ -328,7 +328,7 @@ def slice_image(
         Path(output_dir).mkdir(parents=True, exist_ok=True)
 
     # read image
-    image_pil = read_image_as_pil(image).resize((640, 640), Image.LANCZOS)
+    image_pil = read_image_as_pil(image)
     verboselog("image.shape: " + str(image_pil.size))
 
     image_width, image_height = image_pil.size
